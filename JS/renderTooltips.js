@@ -18,13 +18,13 @@ export function renderTooltip(map) {
 
       tooltip.classList.add("active");
       tooltip.style.left = `${e.clientX - 70}px`;
-      tooltip.style.top = `${e.clientY - 100}px`;
+      tooltip.style.top = `${e.clientY + 30}px`;
       tooltip.style.display = "block";
     });
 
     marker.addEventListener("mousemove", (e) => {
       tooltip.style.left = `${e.clientX - 70}px`;
-      tooltip.style.top = `${e.clientY - 100}px`;
+      tooltip.style.top = `${e.clientY + 30}px`;
     });
 
     marker.addEventListener("mouseout", () => {
