@@ -1,0 +1,35 @@
+export function renderTooltip(map) {
+  const tooltip = document.createElement("div");
+  tooltip.classList.add("map-tooltip");
+
+  map.append(tooltip);
+
+  const markers = document.querySelectorAll(".map-marker");
+
+  markers.forEach((marker) => {
+    marker.addEventListener("mouseover", (e) => {
+      const name = marker.dataset.name;
+      const population = marker.dataset.population;
+
+      tooltip.innerHTML = `
+          <h2>${name}</h2>
+          <div>Population: <strong>${population}</strong></div>
+        `;
+
+      tooltip.classList.add("active");
+      tooltip.style.left = `${e.clientX - 70}px`;
+      tooltip.style.top = `${e.clientY - 100}px`;
+      tooltip.style.display = "block";
+    });
+
+    marker.addEventListener("mousemove", (e) => {
+      tooltip.style.left = `${e.clientX - 70}px`;
+      tooltip.style.top = `${e.clientY - 100}px`;
+    });
+
+    marker.addEventListener("mouseout", () => {
+      tooltip.innerHTML = "";
+      tooltip.classList.remove("active");
+    });
+  });
+}
