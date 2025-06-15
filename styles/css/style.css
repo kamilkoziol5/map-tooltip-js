@@ -5,6 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Averia Serif Libre", serif;
 }
 
 .app {
@@ -27,13 +28,12 @@ body {
 }
 
 .map-text {
-  font-family: sans-serif;
   color: #292929;
   font-size: clamp(14px, 2vw, 18px);
 }
 .map-text span {
   color: #ff7322;
-  font-weight: bold;
+  font-weight: 300;
 }
 
 .map-marker {
@@ -74,7 +74,7 @@ body {
 }
 
 .map-tooltip {
-  padding: 10px 15px;
+  padding: 15px 25px;
   max-width: 200px;
   background: #292929;
   display: inline-block;
@@ -82,10 +82,9 @@ body {
   position: fixed;
   transform: scale(0);
   opacity: 0;
-  font-family: sans-serif;
-  color: #ababab;
   border-radius: 0 4px 4px 12px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.65), 0 0 15px rgba(0, 0, 0, 0.45);
+  border: 1px solid #ababab;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.85), 0 0 15px rgba(0, 0, 0, 0.65), 0 0 20px rgba(0, 0, 0, 0.4);
   transition: transform 400ms ease, opacity 700ms ease;
   pointer-events: none;
 }
@@ -96,9 +95,44 @@ body {
   text-transform: uppercase;
   margin-bottom: 10px;
 }
+.map-tooltip span {
+  color: #ababab;
+  font-size: 0.9rem;
+  font-weight: 100;
+}
+.map-tooltip span.strong {
+  color: #292929;
+  text-decoration: underline;
+  font-weight: 900;
+  font-size: 1rem;
+  margin-left: 5px;
+  padding: 3px;
+  background-color: #ffc814;
+  border-radius: 3px;
+}
 .map-tooltip.active {
   transform: scale(1);
   opacity: 1;
+}
+.map-tooltip:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #ffc814;
+}
+.map-tooltip:before {
+  content: "";
+  width: 6px;
+  height: 50px;
+  border-radius: 10px;
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  background-color: #ff7322;
 }
 
 @media (max-width: 750px) {

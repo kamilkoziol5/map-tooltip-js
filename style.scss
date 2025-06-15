@@ -6,6 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Averia Serif Libre", serif;
 }
 
 .app {
@@ -28,12 +29,11 @@ body {
   }
 }
 .map-text {
-  font-family: sans-serif;
   color: $darkBg;
   font-size: clamp(14px, 2vw, 18px);
   span {
     color: $color2;
-    font-weight: bold;
+    font-weight: 300;
   }
 }
 
@@ -80,7 +80,7 @@ body {
 }
 
 .map-tooltip {
-  padding: 10px 15px;
+  padding: 15px 25px;
   max-width: 200px;
   background: $darkBg;
   display: inline-block;
@@ -88,10 +88,10 @@ body {
   position: fixed;
   transform: scale(0);
   opacity: 0;
-  font-family: sans-serif;
-  color: #ababab;
   border-radius: 0 4px 4px 12px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.65), 0 0 15px rgba(0, 0, 0, 0.45);
+  border: 1px solid $grayColor;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.85), 0 0 15px rgba(0, 0, 0, 0.65),
+    0 0 20px rgba(0, 0, 0, 0.4);
   transition: transform 400ms ease, opacity 700ms ease;
   pointer-events: none;
 
@@ -103,9 +103,46 @@ body {
     margin-bottom: 10px;
   }
 
+  span {
+    color: $grayColor;
+    font-size: 0.9rem;
+    font-weight: 100;
+
+    &.strong {
+      color: $darkBg;
+      text-decoration: underline;
+      font-weight: 900;
+      font-size: 1rem;
+      margin-left: 5px;
+      padding: 3px;
+      background-color: $color1;
+      border-radius: 3px;
+    }
+  }
+
   &.active {
     transform: scale(1);
     opacity: 1;
+  }
+  &:after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: $color1;
+  }
+  &:before {
+    content: "";
+    width: 6px;
+    height: 50px;
+    border-radius: 10px;
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    background-color: $color2;
   }
 }
 

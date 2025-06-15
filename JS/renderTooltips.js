@@ -13,7 +13,7 @@ export function renderTooltip(map) {
 
       tooltip.innerHTML = `
           <h2>${name}</h2>
-          <div>Population: <strong>${population}</strong></div>
+          <span>Populacja: <span class="strong">${population}</span></span>
         `;
 
       tooltip.classList.add("active");
