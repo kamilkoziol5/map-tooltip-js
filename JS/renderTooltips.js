@@ -10,12 +10,14 @@ export function renderTooltip(map) {
     marker.addEventListener("mouseover", (e) => {
       const name = marker.dataset.name;
       const population = marker.dataset.population;
+      const formattedPopulation = population
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
       tooltip.innerHTML = `
-          <h2>${name}</h2>
-          <span>Populacja: <span class="strong">${population}</span></span>
-        `;
-
+        <h2>${name}</h2>
+        <span>Populacja: <span class="strong">${formattedPopulation}</span></span>
+      `;
       tooltip.classList.add("active");
       tooltip.style.left = `${e.clientX - 70}px`;
       tooltip.style.top = `${e.clientY + 30}px`;
